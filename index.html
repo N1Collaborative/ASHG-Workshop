@@ -1,87 +1,703 @@
-```html
-<!-- ================= WORKSHOP RESOURCES ================= -->
+<!DOCTYPE html>
+<html lang="en">
 
-<section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <h2>Workshop Resources</h2>
+  <title>N=1 Collaborative | ASHG Workshop</title>
 
-  <p class="section-intro">
-    Links to the resources and tools used during today's workshop.
-  </p>
+  <style>
 
-  <div class="resource-links">
+    /* =====================================================
+       N1C COLOURS
+       ===================================================== */
+
+    :root {
+      --n1c-blue: #081D47;
+      --n1c-red: #DC4A40;
+      --white: #FFFFFF;
+      --off-white: #F6F5F2;
+      --light-grey: #E7E9ED;
+      --grey: #6F7682;
+    }
+
+
+    /* =====================================================
+       GENERAL
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--off-white);
+      color: var(--n1c-blue);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 45px 20px 70px;
+    }
+
+    section {
+      margin-bottom: 70px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--n1c-blue);
+    }
+
+    .section-intro {
+      color: var(--grey);
+      margin-top: 0;
+      max-width: 750px;
+    }
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    header {
+      background: var(--n1c-blue);
+      color: white;
+      padding: 55px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .red-line {
+      width: 65px;
+      height: 5px;
+      background: var(--n1c-red);
+      border-radius: 10px;
+      margin: 25px auto 0;
+    }
+
+
+    /* =====================================================
+       WORKSHOP RESOURCE LINKS
+       ===================================================== */
+
+    .resource-links {
+      margin-top: 25px;
+      background: white;
+      padding: 5px 28px;
+      border-radius: 10px;
+    }
+
+    .resource-links p {
+      margin: 0;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .resource-links p:last-child {
+      border-bottom: none;
+    }
+
+    .resource-links a {
+      color: var(--n1c-red);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .resource-links a:hover {
+      text-decoration: underline;
+    }
+
+    .resource-links span {
+      display: block;
+      color: var(--grey);
+      font-size: 0.95rem;
+      margin-top: 2px;
+    }
+
+    .resource-links .detail {
+      color: var(--n1c-blue);
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+
+    /* =====================================================
+       EXERCISE SECTIONS
+       ===================================================== */
+
+    .exercise {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 6px solid var(--n1c-red);
+      margin-top: 25px;
+    }
+
+    .exercise h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--n1c-blue);
+      font-size: 1.3rem;
+    }
+
+    .exercise > p {
+      color: var(--grey);
+    }
+
+
+    /* =====================================================
+       VARIANT BOXES
+       ===================================================== */
+
+    .variant {
+      margin-top: 18px;
+      padding: 18px;
+      background: var(--off-white);
+      border: 1px solid var(--light-grey);
+      border-radius: 8px;
+    }
+
+    .variant-label {
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--n1c-red);
+      letter-spacing: 0.06em;
+      margin-top: 12px;
+      margin-bottom: 2px;
+    }
+
+    .variant-label:first-child {
+      margin-top: 0;
+    }
+
+    .variant code {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--n1c-blue);
+      font-weight: bold;
+      word-break: break-word;
+      user-select: all;
+      cursor: text;
+      margin: 3px 0;
+    }
+
+    .variant p {
+      margin: 10px 0 0;
+      color: var(--grey);
+      font-size: 0.9rem;
+    }
+
+
+    /* =====================================================
+       TOOL BUTTONS
+       ===================================================== */
+
+    .try-tool {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 9px 16px;
+      background: var(--n1c-red);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: opacity 0.2s ease;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      background: var(--n1c-blue);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: white;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 40px 18px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 35px 16px 60px;
+      }
+
+      section {
+        margin-bottom: 55px;
+      }
+
+      h2 {
+        font-size: 1.65rem;
+      }
+
+      .resource-links {
+        padding: 5px 20px;
+      }
+
+      .exercise {
+        padding: 22px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header>
+
+    <h1>N=1 Collaborative ASHG Workshop</h1>
 
     <p>
-      <a href="https://www.menti.com/al3ioxpzshys" target="_blank" rel="noopener noreferrer">
-        <strong>Mentimeter</strong>
-      </a><br>
-      <span>Join the interactive workshop questions.</span>
-      <span>Mentimeter code: 5681 7532</span>
+      Assessing Genetic Variants for Therapeutic Actionability
     </p>
 
-    <p>
-      <a href="https://avec.uni-koeln.de/guidelines"
-         target="_blank" rel="noopener noreferrer">
-        <strong>N1C ASO Guidelines →</strong>
-      </a><br>
-      <span>Guidelines for assessing variants for ASO therapeutic approaches.</span>
-      <span>v2.0 July 2026</span>
-    </p>
+    <div class="red-line"></div>
 
-    <p>
-      <a href="https://avec.uni-koeln.de/"
-         target="_blank" rel="noopener noreferrer">
-        <strong>AVEC →</strong>
-      </a><br>
-      <span>Variant assessment using the N1C ASO guidelines.</span>
-    </p>
+  </header>
 
-    <p>
-      <a href="https://hawk-eye.research.sickkids.ca/"
-         target="_blank" rel="noopener noreferrer">
-        <strong>HAWK-EYE →</strong>
-      </a><br>
-      <span>Assess variants for exon skipping, splice correction and allele-specific knockdown.</span>
-    </p>
 
-    <p>
-      <a href="YOUR-GENE-EDITING-TOOL-LINK"
-         target="_blank" rel="noopener noreferrer">
-        <strong>Gene Editing Tool →</strong>
-      </a><br>
-      <span>Tool used for the gene editing framework exercise.</span>
-    </p>
 
-  </div>
+  <main>
 
-</section>
-```
 
-And add this small piece to your CSS:
+    <!-- =====================================================
+         WORKSHOP RESOURCES
+         ===================================================== -->
 
-```css
-.resource-links {
-  margin-top: 25px;
-}
+    <section>
 
-.resource-links p {
-  margin: 0;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--light-grey);
-}
+      <h2>Workshop Resources</h2>
 
-.resource-links a {
-  color: var(--n1c-red);
-  text-decoration: none;
-  font-size: 1.1rem;
-}
+      <p class="section-intro">
+        Links to the resources and tools used during today's workshop.
+      </p>
 
-.resource-links a:hover {
-  text-decoration: underline;
-}
 
-.resource-links span {
-  color: var(--grey);
-  font-size: 0.95rem;
-}
+      <div class="resource-links">
+
+
+        <!-- MENTIMETER -->
+
+        <p>
+
+          <a
+            href="https://www.menti.com/al3ioxpzshys"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>Mentimeter →</strong>
+
+          </a>
+
+          <span>
+            Join the interactive workshop questions.
+          </span>
+
+          <span class="detail">
+            Mentimeter code: 5681 7532
+          </span>
+
+        </p>
+
+
+        <!-- ASO GUIDELINES -->
+
+        <p>
+
+          <a
+            href="https://avec.uni-koeln.de/guidelines"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>N1C ASO Guidelines →</strong>
+
+          </a>
+
+          <span>
+            Guidelines for assessing variants for ASO therapeutic approaches.
+          </span>
+
+          <span class="detail">
+            Version 2.0 · July 2026
+          </span>
+
+        </p>
+
+
+        <!-- AVEC -->
+
+        <p>
+
+          <a
+            href="https://avec.uni-koeln.de/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>AVEC →</strong>
+
+          </a>
+
+          <span>
+            Variant assessment using the N1C ASO guidelines.
+          </span>
+
+        </p>
+
+
+        <!-- HAWK-EYE -->
+
+        <p>
+
+          <a
+            href="https://hawk-eye.research.sickkids.ca/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>HAWK-EYE →</strong>
+
+          </a>
+
+          <span>
+            Assess variants for exon skipping, splice correction
+            and allele-specific knockdown.
+          </span>
+
+        </p>
+
+
+        <!-- GENE EDITING TOOL -->
+
+        <p>
+
+          <a
+            href="YOUR-GENE-EDITING-TOOL-LINK"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <strong>Gene Editing Tool →</strong>
+
+          </a>
+
+          <span>
+            Tool used for the gene editing framework exercise.
+          </span>
+
+        </p>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ASO GUIDELINE EXAMPLES
+         ===================================================== -->
+
+    <section>
+
+      <h2>Examples for ASO Guidelines</h2>
+
+      <p class="section-intro">
+        Use the example variants below during the ASO eligibility
+        assessment exercise. Copy and paste the relevant information
+        into the tools introduced during the workshop.
+      </p>
+
+
+      <!-- ASO EXAMPLE 1 -->
+
+      <div class="exercise">
+
+        <h3>Example 1</h3>
+
+        <p>
+          Add a short description or instructions for this example here.
+        </p>
+
+
+        <div class="variant">
+
+          <div class="variant-label">
+            Gene
+          </div>
+
+          <code>GENE</code>
+
+
+          <div class="variant-label">
+            Variant
+          </div>
+
+          <code>NM_XXXXXX.X:c.XXXA&gt;G</code>
+
+
+          <p>
+            Optional note about the variant.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ASO EXAMPLE 2 -->
+
+      <div class="exercise">
+
+        <h3>Example 2</h3>
+
+        <p>
+          Add a short description or instructions for this example here.
+        </p>
+
+
+        <div class="variant">
+
+          <div class="variant-label">
+            Gene
+          </div>
+
+          <code>GENE</code>
+
+
+          <div class="variant-label">
+            Variant
+          </div>
+
+          <code>NM_XXXXXX.X:c.XXX+XG&gt;A</code>
+
+        </div>
+
+      </div>
+
+
+      <!-- ASO TOOL LINKS -->
+
+      <div class="try-tool">
+
+        <strong>Ready to assess the variants?</strong>
+
+        <br>
+
+        <a
+          class="button"
+          href="https://avec.uni-koeln.de/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Open AVEC
+
+        </a>
+
+        <a
+          class="button"
+          href="https://hawk-eye.research.sickkids.ca/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Open HAWK-EYE
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GENE EDITING FRAMEWORK EXAMPLES
+         ===================================================== -->
+
+    <section>
+
+      <h2>Examples for Gene Editing Framework</h2>
+
+      <p class="section-intro">
+        Use the example variants below to explore therapeutic
+        actionability using the N1C Gene Editing Framework.
+      </p>
+
+
+      <!-- GENE EDITING EXAMPLE 1 -->
+
+      <div class="exercise">
+
+        <h3>Example 1</h3>
+
+        <p>
+          Add a short description or instructions for this example here.
+        </p>
+
+
+        <div class="variant">
+
+          <div class="variant-label">
+            Gene
+          </div>
+
+          <code>GENE</code>
+
+
+          <div class="variant-label">
+            Variant
+          </div>
+
+          <code>NM_XXXXXX.X:c.XXXC&gt;T</code>
+
+
+          <p>
+            Optional information participants need for the assessment.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GENE EDITING EXAMPLE 2 -->
+
+      <div class="exercise">
+
+        <h3>Example 2</h3>
+
+        <p>
+          Add a short description or instructions for this example here.
+        </p>
+
+
+        <div class="variant">
+
+          <div class="variant-label">
+            Gene
+          </div>
+
+          <code>GENE</code>
+
+
+          <div class="variant-label">
+            Variant
+          </div>
+
+          <code>NM_XXXXXX.X:c.XXXdel</code>
+
+        </div>
+
+      </div>
+
+
+      <!-- GENE EDITING TOOL -->
+
+      <div class="try-tool">
+
+        <strong>Ready to try the examples?</strong>
+
+        <br>
+
+        <a
+          class="button"
+          href="YOUR-GENE-EDITING-TOOL-LINK"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Open Gene Editing Tool
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <strong>N=1 Collaborative · ASHG Workshop</strong>
+
+    <br>
+
+    <a
+      href="https://www.n1collaborative.org/"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      www.n1collaborative.org
+
+    </a>
+
+  </footer>
+
+
+</body>
+
+</html>
 ```
