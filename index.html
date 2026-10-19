@@ -1,0 +1,85 @@
+```html
+<!-- ================= WORKSHOP RESOURCES ================= -->
+
+<section>
+
+  <h2>Workshop Resources</h2>
+
+  <p class="section-intro">
+    Links to the resources and tools used during today's workshop.
+  </p>
+
+  <div class="resource-links">
+
+    <p>
+      <a href="YOUR-MENTIMETER-LINK" target="_blank" rel="noopener noreferrer">
+        <strong>Mentimeter →</strong>
+      </a><br>
+      <span>Join the interactive workshop.</span>
+    </p>
+
+    <p>
+      <a href="https://doi.org/10.1016/j.ajhg.2025.02.017"
+         target="_blank" rel="noopener noreferrer">
+        <strong>N1C ASO Guidelines →</strong>
+      </a><br>
+      <span>Guidelines for assessing variants for ASO therapeutic approaches.</span>
+    </p>
+
+    <p>
+      <a href="https://avec.uni-koeln.de/"
+         target="_blank" rel="noopener noreferrer">
+        <strong>AVEC →</strong>
+      </a><br>
+      <span>Variant assessment using the N1C ASO guidelines.</span>
+    </p>
+
+    <p>
+      <a href="https://hawk-eye.research.sickkids.ca/"
+         target="_blank" rel="noopener noreferrer">
+        <strong>HAWK-EYE →</strong>
+      </a><br>
+      <span>Assess variants for exon skipping, splice correction and allele-specific knockdown.</span>
+    </p>
+
+    <p>
+      <a href="YOUR-GENE-EDITING-TOOL-LINK"
+         target="_blank" rel="noopener noreferrer">
+        <strong>Gene Editing Tool →</strong>
+      </a><br>
+      <span>Tool used for the gene editing framework exercise.</span>
+    </p>
+
+  </div>
+
+</section>
+```
+
+And add this small piece to your CSS:
+
+```css
+.resource-links {
+  margin-top: 25px;
+}
+
+.resource-links p {
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.resource-links a {
+  color: var(--n1c-red);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.resource-links a:hover {
+  text-decoration: underline;
+}
+
+.resource-links span {
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+```
